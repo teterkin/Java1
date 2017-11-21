@@ -4,7 +4,6 @@ public class HelloWorld {
             Warnings:
                 Warning:(14, 28) Value 'f' is always 'true'
                 Warning:(15, 13) Condition 'd<10' is always 'false'
-                Warning:(23, 16) Access can be private
          */
         int b;
         int a = 5;
@@ -26,7 +25,7 @@ public class HelloWorld {
         System.out.println("a + b = " + add(a,b));
     }
 
-    static int add (int a, int b) {
+    private static int add(int a, int b) {
         return a + b;
     }
 }

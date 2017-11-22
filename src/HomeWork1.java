@@ -1,5 +1,13 @@
+/**
+ * Домашняя работа по курсу Java1
+ * @author teterkin@gmail.com
+ * @version 0.2 (java doc added)
+ */
 public class HomeWork1 {
-
+    /**
+     * Главный метод. Используется для проверки работы остальных методов класса.
+     * @param args аргументы командной строки. Не используются в данном классе.
+     */
     public static void main(String[] args) {
 
         // Примитивные:
@@ -56,10 +64,24 @@ public class HomeWork1 {
 
     }
 
+    /**
+     * Пример метода с простой математикой.
+     * @param a целое число
+     * @param b целое число
+     * @param c целое число
+     * @param d целое число
+     * @return Возращает вычисленную по формуле a*(b+(c/d) сумму.
+     */
     public static int simpleMath(int a, int b, int c, int d) {
         return (a*(b+(c/d)));
     }
 
+    /**
+     * Пример метода проверяюего лежит ли сумма параметров в диапазоне от 10 до 20
+     * @param num1 целое число №1
+     * @param num2 целое число №2
+     * @return Возвращает логическое Истина или Ложь.
+     */
     public static boolean isBetween1020(int num1, int num2) {
         boolean RC = false;
         int sum = num1 + num2;
@@ -69,6 +91,12 @@ public class HomeWork1 {
         return RC;
     }
 
+    /**
+     * Пример метода, возвращающего строку "положительное" или "отрицательное"
+     * в зависимости от полученного числа num
+     * @param num полученное число для проверки
+     * @return возвращает строку.
+     */
     public static String isPositive(int num) {
         String RC;
         if (num<0) {
@@ -79,16 +107,30 @@ public class HomeWork1 {
         return RC;
     }
 
+    /**
+     * Проверка отрицательности числа
+     * @param num входное целое число
+     * @return Возвращает логичское Истина или Ложь
+     */
     public static boolean isNegative(int num) {
         boolean RC = false;
         if (num<0) RC = true;
         return RC;
     }
 
+    /**
+     * Метод, выыодящий приветствие использцет параметр name для формирования строки
+     * приветсвия
+     * @param name входной параметр имя для приветсвия
+     */
     public static void sayHello(String name) {
         System.out.println("Привет, "+ name + "!");
     }
 
+    /**
+     * Метод, сообщающий, является ли год високосным или нет
+     * @param year год для проверки
+     */
     public static void isItLeapYear(int year) {
         // Алгоритм немного отличается от задания, т.к. реально
         // в Григорианском календаре год является високосным в двух случаях:

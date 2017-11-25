@@ -61,7 +61,6 @@ public class HomeWork1 {
         isItLeapYear(1900);
         isItLeapYear(2000);
         isItLeapYear(2008);
-
     }
 
     /**

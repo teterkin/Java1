@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -12,14 +13,17 @@ import java.util.Scanner;
  */
 public class HomeWork4
 {
-    final int mySIZE = 3;
-    final int myTreshold = 3;
+    final int mySIZE = 3;  //5
+    final int myTreshold = 3;  //4
     final char myX = 'x';
     final char myO = 'o';
     final char myEmpty = '.';
     char[][] myMap = new char[mySIZE][mySIZE];
     Boolean Done = false;
     Scanner scanner = new Scanner(System.in);
+    int[] line = new int[(mySIZE * 2 + 2)];
+    int[][] moves = new int[2][10];
+    int moveNum = 0;
     
     /**
      * Запуск главного метода класса.
@@ -41,7 +45,7 @@ public class HomeWork4
      */
     HomeWork4()
     {
-        System.out.println("Игра началась!");
+        System.out.println("\nИгра началась!");
         initMap();
         displayMap();
     }
@@ -67,7 +71,12 @@ public class HomeWork4
      */
     private void displayMap()
     {
-        System.out.println("  1 2 3");
+        System.out.print("  ");
+        for (int i = 0; i < mySIZE; i++)
+        {
+            System.out.print((i+1) + " ");
+        }
+        System.out.println();
         for (int i = 0; i < mySIZE; i++)
         {
             System.out.print((i+1) + " ");
@@ -127,14 +136,54 @@ public class HomeWork4
         System.out.println("Тэкс... ИИ думает...");
         while (keepAsking)
         {
-            int mapX = (int) (Math.random() * 3 + 1);
-            int mapY = (int) (Math.random() * 3 + 1);
-            if (isValid(mapX, mapY))
+            // Сначала попробуем продолжить ход игрока
+            /*
+                System.out.println("Array of moves:");
+                System.out.println(Arrays.toString(moves[0]));
+                System.out.println(Arrays.toString(moves[1]));
+            */
+            if (moveNum > 1)
             {
-                keepAsking = false;
-                myMap[mapX - 1][mapY - 1] = myO;
-                System.out.println("Он ходит: [" + (mapY) + "," + (mapX) + "]");
-                System.out.println();
+                int MapY = moves[0][moveNum-1] - moves[0][moveNum-2] + moves[0][moveNum-1];
+                int MapX = moves[1][moveNum-1] - moves[1][moveNum-2] + moves[1][moveNum-1];
+                /*
+                    System.out.println("MapX = " + MapX);
+                    System.out.println("MapY = " + MapY);
+                */
+                if (isValid(MapX, MapY))
+                {
+                    keepAsking = false;
+                    myMap[MapX - 1][MapY - 1] = myO;
+                    System.out.println("Он ходит: [" + (MapY) + "," + (MapX) + "]");
+                    System.out.println();
+                }
+                else
+                {
+                    // Если не получилось ищем случайно
+                    int mapX = (int) (Math.random() * mySIZE + 1);
+                    int mapY = (int) (Math.random() * mySIZE + 1);
+                    if (isValid(mapX, mapY))
+                    {
+                        keepAsking = false;
+                        myMap[mapX - 1][mapY - 1] = myO;
+                        System.out.println("Он ходит: [" + (mapY) + "," + (mapX) + "]");
+                        System.out.println();
+                    }
+                }
+                
+            }
+            else
+            {
+                // Если не получилось ищем случайно
+                int mapX = (int) (Math.random() * mySIZE + 1);
+                int mapY = (int) (Math.random() * mySIZE + 1);
+                if (isValid(mapX, mapY))
+                {
+                    keepAsking = false;
+                    myMap[mapX - 1][mapY - 1] = myO;
+                    System.out.println("Он ходит: [" + (mapY) + "," + (mapX) + "]");
+                    System.out.println();
+                }
             }
         }
     }
@@ -177,7 +226,12 @@ public class HomeWork4
             При этом он должен сложить 8 переменных и в конце их все проверить, есть ли
             линия.
         }*/
-        int[] line = new int[8];
+        // Надо обнудять перед новым циколом
+        for (int i = 0; i < line.length; i++)
+        {
+            line[i] = 0;
+        }
+        
         //сверху вниз
         for (int i = 0; i < mySIZE; i++)
         {
@@ -191,16 +245,16 @@ public class HomeWork4
                 // Вертикальная линия
                 if (myMap[j][i] == myChar)
                 {
-                    line[(i+3)]++;
+                    line[(i+mySIZE)]++;
                 }
             }
             // слева направо сверху вних
             if (myMap[i][i] == myChar)
             {
-                line[6]++;
+                line[(mySIZE * 2)]++;
             }
             // слева направо снизу вверх
-            if (myMap[i][2-i] == myChar)
+            if (myMap[i][(mySIZE-i-1)] == myChar)
             {
                 line[7]++;
             }
@@ -229,7 +283,7 @@ public class HomeWork4
         while (keepAsking)
         {
             System.out.println("Введите координаты крестика (X,Y) через пробел.");
-            System.out.println("Обк координаты должны быть в пределах от 1 до " + mySIZE + ".");
+            System.out.println("Обе координаты должны быть в пределах от 1 до " + mySIZE + ".");
             System.out.print("=> ");
             int mapX = 0;
             int mapY = 0;
@@ -246,6 +300,9 @@ public class HomeWork4
                     myMap[mapX - 1][mapY - 1] = myX;
                     System.out.println("\nТы сходил: [" + (mapY) + "," + (mapX) + "]");
                     System.out.println();
+                    moves[0][moveNum] = mapY;
+                    moves[1][moveNum] = mapX;
+                    moveNum++;
                 } else
                 {
                     System.out.println("Сюда крестик не поставишь :(");

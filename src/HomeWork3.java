@@ -10,7 +10,6 @@ public class HomeWork3
     public static void main(String[] args)
     {
         /*
-        TODO: Задача №1
         Написать программу, которая загадывает случайное число от 0 до 9,
         и пользователю дается 3 попытки угадать это число.
         При каждой попытке компьютер должен сообщить больше ли указанное
@@ -46,7 +45,6 @@ public class HomeWork3
         
         
         /*
-        TODO: Задача №2 (Повышенной сложности) - Сделать чтение массива из файла.
         Создать массив из слов String[] words = {"apple", "orange", "lemon", "banana",
         "apricot", "avocado", "broccoli", "carrot", "cherry", "garlic", "grape", "melon",
         "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear",

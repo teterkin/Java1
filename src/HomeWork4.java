@@ -133,57 +133,53 @@ public class HomeWork4
     private void aiTurn()
     {
         boolean keepAsking = true;
+        boolean goRandom = false;
+        int mapX = 0;
+        int mapY = 0;
+        
         System.out.println("Тэкс... ИИ думает...");
+        
         while (keepAsking)
         {
             // Сначала попробуем продолжить ход игрока
             /*
+                DEBUG:
                 System.out.println("Array of moves:");
                 System.out.println(Arrays.toString(moves[0]));
                 System.out.println(Arrays.toString(moves[1]));
             */
             if (moveNum > 1)
             {
-                int MapY = moves[0][moveNum-1] - moves[0][moveNum-2] + moves[0][moveNum-1];
-                int MapX = moves[1][moveNum-1] - moves[1][moveNum-2] + moves[1][moveNum-1];
+                mapY = moves[0][moveNum-1] - moves[0][moveNum-2] + moves[0][moveNum-1];
+                mapX = moves[1][moveNum-1] - moves[1][moveNum-2] + moves[1][moveNum-1];
                 /*
+                    DEBUG:
                     System.out.println("MapX = " + MapX);
                     System.out.println("MapY = " + MapY);
                 */
-                if (isValid(MapX, MapY))
+                if (!isValid(mapX, mapY))
                 {
-                    keepAsking = false;
-                    myMap[MapX - 1][MapY - 1] = myO;
-                    System.out.println("Он ходит: [" + (MapY) + "," + (MapX) + "]");
-                    System.out.println();
+                    goRandom = true;
                 }
-                else
-                {
-                    // Если не получилось ищем случайно
-                    int mapX = (int) (Math.random() * mySIZE + 1);
-                    int mapY = (int) (Math.random() * mySIZE + 1);
-                    if (isValid(mapX, mapY))
-                    {
-                        keepAsking = false;
-                        myMap[mapX - 1][mapY - 1] = myO;
-                        System.out.println("Он ходит: [" + (mapY) + "," + (mapX) + "]");
-                        System.out.println();
-                    }
-                }
-                
             }
             else
             {
+                goRandom = true;
+            }
+            
+            if (goRandom)
+            {
                 // Если не получилось ищем случайно
-                int mapX = (int) (Math.random() * mySIZE + 1);
-                int mapY = (int) (Math.random() * mySIZE + 1);
-                if (isValid(mapX, mapY))
-                {
-                    keepAsking = false;
-                    myMap[mapX - 1][mapY - 1] = myO;
-                    System.out.println("Он ходит: [" + (mapY) + "," + (mapX) + "]");
-                    System.out.println();
-                }
+                mapX = (int) (Math.random() * mySIZE + 1);
+                mapY = (int) (Math.random() * mySIZE + 1);
+            }
+            
+            if (isValid(mapX, mapY))
+            {
+                keepAsking = false;
+                myMap[mapX - 1][mapY - 1] = myO;
+                System.out.println("Он ходит: [" + (mapY) + "," + (mapX) + "]");
+                System.out.println();
             }
         }
     }

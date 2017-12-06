@@ -278,7 +278,9 @@ public class HomeWork4
         boolean keepAsking = true;
         while (keepAsking)
         {
-            System.out.println("Введите координаты крестика (X,Y) через пробел.");
+            String strNormalSize = "\033[0;0m";
+            String strBoldSize = "\033[0;1m";
+            System.out.println("Введите координаты крестика ("+strBoldSize+"X,Y"+strNormalSize+") через пробел.");
             System.out.println("Обе координаты должны быть в пределах от 1 до " + mySIZE + ".");
             System.out.print("=> ");
             int mapX = 0;

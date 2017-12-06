@@ -1,17 +1,5 @@
-/**
- * @author teterkin@gmail.com
- * @version 06/12/2017
- * @link https://github.com/teterkin/Java1/blob/master/src/HomeWork5.java
- */
 public class HomeWork5
 {
-    /**
-     * Main class
-     * We add 5 fake employees for testing
-     * Next we test showAllAboveForty() method, sending all-employees array as argument.
-     * Method shows all the workers with age above 40 and all their data.
-     * @param args
-     */
     public static void main(String[] args)
     {
         Employee[] employees = new Employee[5];
@@ -36,11 +24,6 @@ public class HomeWork5
         
     }
     
-    /**
-     * Simple method to display all employees data.
-     * We display only employees with age above 40.
-     * @param employees - array of all employees (of class Employee).
-     */
     public static void showAllAboveForty(Employee[] employees)
     {
         for (Employee employee : employees)
@@ -51,14 +34,8 @@ public class HomeWork5
     }
 }
 
-/**
- * Default class for Employee
- */
 class Employee
 {
-    /**
-     * Properties
-     */
     private String firstName;
     private String secondName;
     private String jobTitle;
@@ -67,17 +44,6 @@ class Employee
     private int salary;
     private int age;
     
-    /**
-     * Constructor
-     * All the properties are self-explaining:
-     * @param firstName
-     * @param secondName
-     * @param jobTitle
-     * @param email
-     * @param phone
-     * @param salary
-     * @param age
-     */
     public Employee(String firstName, String secondName, String jobTitle, String email, String phone, int salary, int age)
     {
         this.firstName = firstName;
@@ -89,136 +55,76 @@ class Employee
         this.age = age;
     }
     
-    /**
-     * getFirstName getter
-     * @return first name.
-     */
     public String getFirstName()
     {
         return firstName;
     }
     
-    /**
-     * First Name setter
-     * @param firstName First Name
-     */
     public void setFirstName(String firstName)
     {
         this.firstName = firstName;
     }
     
-    /**
-     * Second Name getter
-     * @return Second Name
-     */
     public String getSecondName()
     {
         return secondName;
     }
     
-    /**
-     * Second name setter
-     * @param secondName Second Name
-     */
     public void setSecondName(String secondName)
     {
         this.secondName = secondName;
     }
     
-    /**
-     * Job Title getter
-     * @return Job Title
-     */
     public String getJobTitle()
     {
         return jobTitle;
     }
     
-    /**
-     * Job Title setter
-     * @param jobTitle Job Title
-     */
     public void setJobTitle(String jobTitle)
     {
         this.jobTitle = jobTitle;
     }
     
-    /**
-     * Email getter
-     * @return Email
-     */
     public String getEmail()
     {
         return email;
     }
     
-    /**
-     * Email setter
-     * @param email Email
-     */
     public void setEmail(String email)
     {
         this.email = email;
     }
     
-    /**
-     * Phone getter
-     * @return Phone number
-     */
     public String getPhone()
     {
         return phone;
     }
     
-    /**
-     * Phone setter
-     * @param phone Phone number
-     */
     public void setPhone(String phone)
     {
         this.phone = phone;
     }
     
-    /**
-     * Salary getter
-     * @return Salary
-     */
     public int getSalary()
     {
         return salary;
     }
     
-    /**
-     * Salary setter
-     * @param salary Salary
-     */
     public void setSalary(int salary)
     {
         this.salary = salary;
     }
     
-    /**
-     * Age getter
-     * @return Age
-     */
     public int getAge()
     {
         return age;
     }
     
-    /**
-     * Age setter
-     * @param age Age
-     */
     public void setAge(int age)
     {
         this.age = age;
     }
     
-    /**
-     * getAllData method
-     * @return all data for current employee.
-     */
     public String getAllData()
     {
         return "\nFirst Name:  " + firstName +

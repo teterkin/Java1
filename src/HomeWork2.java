@@ -112,7 +112,7 @@ public class HomeWork2 {
         System.out.println("Максимальное число — " + maxNum +
                 ". Оно идёт " + (maxIdx + 1) + "-ым по счёту.");
 
-        
+
 
     } // main
 } // class

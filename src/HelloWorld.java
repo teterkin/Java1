@@ -1,5 +1,7 @@
-public class HelloWorld {
-    public static void main(String[] args) {
+public class HelloWorld
+{
+    public static void main(String[] args)
+    {
         /*
             Warnings:
                 Warning:(14, 28) Value 'f' is always 'true'
@@ -17,15 +19,18 @@ public class HelloWorld {
         System.out.println(c);
         System.out.println(d);
         System.out.println(f);
-        if (d<10) {
+        if (d < 10)
+        {
             System.out.println("d <10");
-        } else {
+        } else
+        {
             System.out.println("d >=10");
         }
-        System.out.println("a + b = " + add(a,b));
+        System.out.println("a + b = " + add(a, b));
     }
-
-    private static int add(int a, int b) {
+    
+    private static int add(int a, int b)
+    {
         return a + b;
     }
 }

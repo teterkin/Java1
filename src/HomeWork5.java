@@ -19,6 +19,7 @@ public class HomeWork5
         employees[0] = new Employee(
                 "Иван", "Иванов", "Engineer",
                 "ivivan@mailbox.com", "892312312", 30000, 30);
+        
         employees[1] = new Employee(
                 "Василий", "Петров", "Programmer",
                 "petroff@mailbox.com", "2121212121", 60000, 45);

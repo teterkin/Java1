@@ -64,6 +64,11 @@ interface AnimalInterface
 
 abstract class Animal implements AnimalInterface
 {
+    public Animal()
+    {
+        System.out.println();
+        System.out.println("\nСоздаю объект класса \"" + this.getClass().getSimpleName() + "\"...");
+    }
 }
 
 class Dog extends Animal
@@ -74,11 +79,10 @@ class Dog extends Animal
     
     public Dog()
     {
-        System.out.println("\nСоздаю собаку...");
+        super();
         System.out.println("MAX_RUN = " + MAX_RUN);
         System.out.println("MAX_JUMP = " + MAX_JUMP);
         System.out.println("MAX_SWIM = " + MAX_SWIM);
-        System.out.println("Собака готова.");
         System.out.println();
     }
     
@@ -128,11 +132,10 @@ class Cat extends Animal
     
     public Cat()
     {
-        System.out.println("\nСоздаю кота...");
+        super();
         System.out.println("MAX_RUN = " + MAX_RUN);
         System.out.println("MAX_JUMP = " + MAX_JUMP);
         System.out.println("MAX_SWIM = " + MAX_SWIM);
-        System.out.println("Кот готов.");
         System.out.println();
     }
     

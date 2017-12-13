@@ -11,7 +11,7 @@
  *  6. Добавить в тарелку метод, с помощью которого можно было бы добавлять еду в тарелку
  *  @author teterkin@gmail.com
  *  @version 20171213
- *  @link 
+ *  @link https://github.com/teterkin/Java1/blob/master/src/HowmeWork7.java
  */
 public class HowmeWork7
 {
